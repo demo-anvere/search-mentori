@@ -21,6 +21,10 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
+*, ::before, ::after {
+    box-sizing: border-box;
+}
+
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
     display: block;
 }
@@ -335,17 +339,29 @@ input[type="number"] {
 
 
 .searchAnvere__list{
-    margin-top: 15px;
+    margin-top: 30px;
 }
 
 .searchAnvere__item a{
-    display: flex;
-    align-items: center;
     font-size: 14px;
+    color: #000;
+    display: block;
+    width: 100%;
+    border: 1px solid #000;
+    border-radius: 4px;
+    padding: 15px;
+    word-break: break-all;
+    transition: all .2s;
 }
 
 .searchAnvere__item a:hover{
-    text-decoration: underline;
+    text-decoration: none;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23%);
+}
+
+.searchAnvere__item{
+    text-align: center;
+    margin-bottom: 30px;
 }
 
 .searchAnvere__item a img{
@@ -353,10 +369,11 @@ input[type="number"] {
     height: 45px;
 }
 
-.searchAnvere__item a span{
-    width: calc(100% - 45px);
-    word-break: break-all;
-    padding-left: 10px;
+.searchAnvere__item .span1{
+    display: block;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 15px;
 }
 
 .searchAnvere__empty{
@@ -375,5 +392,24 @@ input[type="number"] {
 
 .searchAnvere .ais-SearchBox-submit{
     display: none;
+}
+
+
+
+@media (min-width: 768px) {
+    .searchAnvere__list{
+        display: flex;
+        flex-wrap: wrap;
+        margin-left: -15px;
+        margin-right: -15px;
+    }
+    .searchAnvere__item{
+        width: 25%;
+        padding: 0 15px;
+        display: flex;
+    }
+    .searchAnvere__empty{
+        padding: 0 15px;
+    }
 }
 

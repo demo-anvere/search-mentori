@@ -14,9 +14,10 @@ function App() {
 		server: {
 			nodes: [
 				{
-					applicationId: "o233zk2q1639711862",
-					host: `search.anvere.net/dAo8iPAW1639711870`,
+					applicationId: "0p0biqi21644205682",
+					host: `search-us.anvere.net/YAgQtRBo1644205682`,
 					protocol: "https",
+					adminApiKey: "3cfdc79a8489362ca2fe06b8bf0f6c16",
 				},
 			],
 		},
@@ -26,7 +27,28 @@ function App() {
 		// },
 	})
 
-	const searchClient = anvereInstantsearchAdapter.searchClient
+	// const searchClient = anvereInstantsearchAdapter.searchClient
+
+	const searchClient = {
+		search(requests) {
+			if (
+				requests.every(({ params }) => !params.query)
+			) {
+				return Promise.resolve({
+					results: requests.map(() => ({
+						hits: [],
+						nbHits: 0,
+						nbPages: 0,
+						page: 0,
+						processingTimeMS: 0,
+						total_docs: 0,
+					})),
+				})
+			}
+
+			return anvereInstantsearchAdapter.searchClient.search(requests)
+		},
+	}
 
 	const Hits = ({ hits }) => {
 		console.log("hits", hits)
@@ -38,14 +60,28 @@ function App() {
 						return (
 							<li className="searchAnvere__item" key={index}>
 								<a
-									// href={`https://www.npmjs.com/package/${props.hit.id}`}
+									href={`https://mentori.vn/user/${item.uss_use_id}`}
 									target="_blank"
+									rel="noopener noreferrer"
 								>
-									<img
-										src={`https://www.milwaukeetool.my/media/catalog/product/cache/f69d6d03f607c5487aa6c0d8ff0727bd${item.base_image}`}
-										alt={`thumbnail-${index}`}
+									{/*<img*/}
+									{/*	src={`hhttps://mentori.vn/upload/images/trp1639403909.jpg`}*/}
+									{/*	alt={`thumbnail-${index}`}*/}
+									{/*/>*/}
+									<span
+										className="span1"
+										dangerouslySetInnerHTML={{
+											__html: item["_highlightResult"]
+												.uss_name.value
+										}}
 									/>
-									<span>{item.name}</span>
+									<span
+										className="span2"
+										dangerouslySetInnerHTML={{
+											__html: item["_highlightResult"]
+												.uss_position.value
+										}}
+									/>
 								</a>
 							</li>
 						)
@@ -75,12 +111,12 @@ function App() {
 			<div className="container">
 				<div className="searchAnvere">
 					<InstantSearch
-						indexName="p8d4fw561639816258"
+						indexName="e0dof45j1644205728"
 						searchClient={searchClient}
 					>
-						<SearchBox />
+						<SearchBox defaultRefinement="*" autoFocus />
 						<CustomHits />
-						<Configure hitsPerPage={8} />
+						<Configure hitsPerPage={10} />
 						<Pagination />
 					</InstantSearch>
 				</div>
