@@ -1,5 +1,6 @@
 {
-  "name": "react-search-milwaukeetool",
+  "homepage": "https://demo-anvere.github.io/search-mentori/",
+  "name": "search-mentori",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -13,6 +14,8 @@
     "web-vitals": "^2.1.2"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -38,6 +41,7 @@
   },
   "devDependencies": {
     "axios": "^0.24.0",
+    "gh-pages": "^3.2.3",
     "prettier": "2.5.1",
     "prop-types": "^15.7.2"
   }
