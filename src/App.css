@@ -356,7 +356,7 @@ input[type="number"] {
 
 .searchAnvere__item a:hover{
     text-decoration: none;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23%);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
 .searchAnvere__item{
@@ -365,8 +365,9 @@ input[type="number"] {
 }
 
 .searchAnvere__item a img{
-    width: 45px;
-    height: 45px;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
 }
 
 .searchAnvere__item .span1{
@@ -374,6 +375,7 @@ input[type="number"] {
     font-size: 16px;
     font-weight: 700;
     margin-bottom: 15px;
+    margin-top: 15px;
 }
 
 .searchAnvere__empty{

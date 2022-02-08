@@ -14,10 +14,10 @@ function App() {
 		server: {
 			nodes: [
 				{
-					applicationId: "0p0biqi21644205682",
-					host: `search-us.anvere.net/YAgQtRBo1644205682`,
+					applicationId: "4nemgxlg1644289854",
+					host: `search-us.anvere.net/caVK9B9r1644289854`,
 					protocol: "https",
-					adminApiKey: "3cfdc79a8489362ca2fe06b8bf0f6c16",
+					adminApiKey: "99a46dd6c40dc2c2c20ff403d9edd6dc",
 				},
 			],
 		},
@@ -64,10 +64,10 @@ function App() {
 									target="_blank"
 									rel="noopener noreferrer"
 								>
-									{/*<img*/}
-									{/*	src={`hhttps://mentori.vn/upload/images/trp1639403909.jpg`}*/}
-									{/*	alt={`thumbnail-${index}`}*/}
-									{/*/>*/}
+									<img
+										src={`https://mentori.vn/upload/images/${item.uss_avatar}`}
+										alt={`thumbnail-${index}`}
+									/>
 									<span
 										className="span1"
 										dangerouslySetInnerHTML={{
@@ -111,7 +111,7 @@ function App() {
 			<div className="container">
 				<div className="searchAnvere">
 					<InstantSearch
-						indexName="e0dof45j1644205728"
+						indexName="43nci6im1644289911"
 						searchClient={searchClient}
 					>
 						<SearchBox defaultRefinement="*" autoFocus />
